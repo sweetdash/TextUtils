@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Text Utils</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Text Util</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact Us</a>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <strong>You are into the Text Utils!</strong> Enter your text and let the website do the job.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+
+      <div class="container">
+        <form action='/analyze' method='post'> {% csrf_token %} <!--The csrf_token is a security feature provided by django in POST request-->
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Enter the Text Here</label>
+                <textarea class="form-control" name="text" id="exampleFormControlTextarea1" rows="5"></textarea>
+              </div>
+        
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="removepunc" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Remove punctuation</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox" name="removeline" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Remove line</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox"  name="extraspace" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Remove extraspace</label>
+        </div>
+        <div class="form-check form-switch">
+            <input class="form-check-input" type="checkbox"  name="charcount" role="switch" id="flexSwitchCheckDefault">
+            <label class="form-check-label" for="flexSwitchCheckDefault">Count characters</label>
+        </div>
+        <button type="submit" class="btn btn-dark mt-2">Analyze text</button>
+      </div>
+    </form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>
